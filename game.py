@@ -27,12 +27,18 @@ class Dunofausto(Sprite):
         self.image = load('images/dunofausto_small.png')
         self.rect = self.image.get_rect()
 
+    def update(self):
+        ...
+
 class Torrada(Sprite):
     def __init__(self):
         super().__init__()
 
         self.image = load('images/torrada_small.png')
         self.rect = self.image.get_rect()
+
+    def update(self):
+        ...
 
 class Virus(Sprite):
     def __init__(self):
@@ -41,13 +47,20 @@ class Virus(Sprite):
         self.image = load('images/inimigo_1.png')
         self.rect = self.image.get_rect()
 
+    def update(self):
+        ...        
+
 
 dunofausto = Dunofausto()
+grupo_inimigos = Group()
+grupo_torradas = Group()
+grupo_duno = GroupSingle(dunofausto)
 
 while True:
     # loop de eventos
 
     # Espaço do display
     superficie.blit(fundo,(0,0))
+    grupo_duno.draw(superficie)
 
     display.update()
